@@ -1,7 +1,7 @@
 const discord = require('discord.js');
 const client = new discord.Client();
 const commandManager = require("./manager/commandManager.js");
-const prefix = '!';
+const prefix = '-';
 const utils = require('./utils.js');
 
 function main() {
@@ -20,7 +20,8 @@ function main() {
       const args = message.content.slice(prefix.length).trim().split(/ +/g);
       const cmd = args.shift().toLowerCase();
 
-      console.log("t");
+      if (cmd.length === 0) return;
+
 
       commandManager.get(cmd).execute(message,args);
 
@@ -30,5 +31,5 @@ function main() {
 
 
 }
-client.login('')
+client.login('NzgwMzM2NDUxMjIwNTM3MzY1.X7tm8w.-uWgU14uSBxgl9P1aRNO9eQlsUA')
 main()
