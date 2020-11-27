@@ -1,7 +1,7 @@
 var theClient = null;
 var theDiscord = null;
 var thePrefix = null;
-var commands = [ ];
+var commands = [];
 const fs = require("fs");
 var Utils = null;
 

@@ -31,5 +31,5 @@ function main() {
 
 
 }
-client.login('NzgwMzM2NDUxMjIwNTM3MzY1.X7tm8w.-uWgU14uSBxgl9P1aRNO9eQlsUA')
+client.login('')
 main()

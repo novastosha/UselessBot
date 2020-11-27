@@ -3,27 +3,22 @@ module.exports = {
   name: "evaluate",
 
   execute: function (message,args){
-    const fs = require("fs");
-    fs.writeFile('newfile.txt', 'Learn Node FS module', function (err) {
-        if (err) throw err;
-        console.log('File is created successfully.');
-    });
-  }
-};
-function combineArguments(fromArg,args) {
 
-  var inArg = 0;
-  var combined = "";
+    //const utils = require("../../utils.js");
+    //message.channel.send({ utils.getEmbedMessage("bad","Nope") });
 
-  args.forEach(arg => {
+    const utils = require("../.././utils.js");
 
-    if(inArg >= fromArg){
-      combined = combined + arg + " ";
+    var embed = utils.getEmbedMessage("bad","Ignore");
+
+    if(args.length === 0){
+      embed = utils.getEmbedMessage("bad","Missing arguments!");
+      message.channel.send({embed});
+      return;
+    }else if (args.length >= 1) {
     }
 
-    inArg++;
-  });
 
-  return combined;
 
-}
+  }
+};

@@ -16,8 +16,11 @@ module.exports = {
         console.log("    ");
         const commandManager = require("../../manager/commandManager.js");
         message.channel.send("Clearing arrays!");
+        console.log(commandManager.commands);
         commandManager.commands = [];
+
         commandManager.readCommandFolder();
+        console.log(commandManager.commands);
         message.channel.send("Reloaded!");
       }
       return;

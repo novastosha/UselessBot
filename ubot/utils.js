@@ -22,5 +22,26 @@ module.exports = {
 
     formatDate: function(date) {
         return new Intl.DateTimeFormat('en-US').format(date)
+    },
+
+    getEmbedMessage: function(type,message){
+      var embed = null;
+      if(type.toLowerCase() === "correct"){
+          embed = {
+  "title": ":white_check_mark: "+message,
+  "color": 2553394
+};
+
+      }else if (type.toLowerCase() === "bad") {
+        embed = {
+"title": ":no_entry_sign: "+message,
+"color": 16131622
+};
+
+      }else{
+        console.log("Bad message type: "+type);
+      }
+
+    return embed;
     }
 }
