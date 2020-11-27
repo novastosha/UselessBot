@@ -1,17 +1,15 @@
 const discord = require('discord.js');
 const client = new discord.Client();
-const commandManager = require("./commands/manager/commandManager.js");
+const commandManager = require("./manager/commandManager.js");
 const prefix = '!';
-
+const utils = require('./utils.js');
 
 function main() {
     client.on("ready", () =>{
       console.log("Client Ready!");
-      commandManager.init(client,discord);
-      commandManager.registerCommand('hehe');
+      commandManager.init(client,discord,prefix,utils);
+      commandManager.readCommandFolder();
     });
-
-    console.log("Bot starting...");
 
     client.on('message', async message => {
 
@@ -22,9 +20,15 @@ function main() {
       const args = message.content.slice(prefix.length).trim().split(/ +/g);
       const cmd = args.shift().toLowerCase();
 
+      console.log("t");
+
+      commandManager.get(cmd).execute(message,args);
 
     });
 
+    console.log("Bot starting...");
+
+
 }
-client.login('Token')
+client.login('')
 main()
