@@ -37,7 +37,11 @@ module.exports = {
 "title": ":no_entry_sign: "+message,
 "color": 16131622
 };
-
+      }else if (type.toLowerCase() === "middle") {
+        embed = {
+"title": message,
+"color": 9079434
+};
       }else{
         console.log("Bad message type: "+type);
       }
