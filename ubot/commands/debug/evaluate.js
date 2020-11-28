@@ -4,8 +4,6 @@ module.exports = {
 
   execute: function (message,args){
 
-    //const utils = require("../../utils.js");
-    //message.channel.send({ utils.getEmbedMessage("bad","Nope") });
 
     const utils = require("../.././utils.js");
 
@@ -16,9 +14,40 @@ module.exports = {
       message.channel.send({embed});
       return;
     }else if (args.length >= 1) {
+      const fs = require("fs");
+      toEval = combineArguments(0,args) +";";
+      fs.writeFile('eval.js', "module.exports = { eval: function (message) { return "+toEval+" } };", function (err) {
+          if (err) throw err;
+          const eval = require("../.././eval.js");
+          embed = utils.getEmbedMessage("middle",'Trying to eval: '+toEval);
+          message.channel.send({embed });
+          embed = utils.getEmbedMessage("correct",'The evaluation returned the following output: "'+eval.eval(message)+'"');
+          message.channel.send({embed });
+          fs.unlinkSync("eval.js");
+      });
+
+
+
     }
 
 
 
   }
 };
+function combineArguments(fromArg,args) {
+
+  var inArg = 0;
+  var combined = "";
+
+  args.forEach(arg => {
+
+    if(inArg >= fromArg){
+      combined = combined + arg + " ";
+    }
+
+    inArg++;
+  });
+
+  return combined;
+
+}
