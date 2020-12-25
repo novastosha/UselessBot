@@ -1,0 +1,24 @@
+{
+  "name": "ubot",
+  "version": "1.0.0",
+  "description": "A Discord Bot",
+  "main": "index.js",
+  "dependencies": {
+    "arraylist": "^0.1.0",
+    "discord.js": "^12.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/novastosha/UselessBot.git"
+  },
+  "author": "novastosha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/novastosha/UselessBot/issues"
+  },
+  "homepage": "https://github.com/novastosha/UselessBot#readme"
+}

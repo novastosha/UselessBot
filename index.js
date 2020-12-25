@@ -11,6 +11,7 @@ function main() {
       commandManager.init(client,discord,prefix,utils);
       guildManager.init(client,discord,prefix,utils);
       commandManager.readCommandFolder();
+    
     });
 
     client.on('message', async message => {
@@ -33,5 +34,5 @@ function main() {
 
 
 }
-client.login('')
+client.login('NzgwMzM2NDUxMjIwNTM3MzY1.X7tm8w.tUheA0_s0c4VcehyQgo2jdI3r8I')
 main();

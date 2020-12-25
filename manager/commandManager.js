@@ -14,7 +14,7 @@ module.exports = {
       Utils = utils;
       console.log("Client started at: "+utils.formatDate(theClient.readyTimestamp));
   },
-  readCommandFolder: function (file = './commands/') {
+  readCommandFolder: function (file = './commands') {
       rg(file);
   },
 
