@@ -6,7 +6,7 @@ const prefix = '-';
 const utils = require('./utils.js');
 const listener = require('./listener.js');
 
-client.login('NzkxOTgzMDMwNDM5OTAzMjY0.X-XFrA.FBQhcED-56k4stYuusTSWF1FmKU');
+client.login('');
 function main() {
   
     client.on("ready", () =>{
