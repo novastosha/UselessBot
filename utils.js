@@ -1,4 +1,32 @@
+
+var client;
 module.exports = {
+
+    
+
+    init: function(clientV){
+
+        client = clientV;
+        console.log(client);
+    },
+
+    getClient : function (){
+        return client;
+    },
+
+    makeTextChannel: function (message,name){
+        var server = message.guild;
+    
+        server.createChannel(name, "text");
+    },
+    makeTicketTextChannel: function (message){
+        var guild = message.guild;
+        var name = message.author.id;
+        guild.channels.create("ticket-"+name, { reason: 'Ticket for user: '+name })
+            .then(console.log)
+            .catch(console.error);
+
+    },
     getMember: function(message, toFind = '') {
         toFind = toFind.toLowerCase();
 

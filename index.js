@@ -4,14 +4,19 @@ const commandManager = require("./manager/commandManager.js");
 const guildManager = require("./manager/guildManager.js");
 const prefix = '-';
 const utils = require('./utils.js');
+const listener = require('./listener.js');
 
+client.login('NzkxOTgzMDMwNDM5OTAzMjY0.X-XFrA.FBQhcED-56k4stYuusTSWF1FmKU');
 function main() {
+  
     client.on("ready", () =>{
       console.log("Client Ready!");
       commandManager.init(client,discord,prefix,utils);
       guildManager.init(client,discord,prefix,utils);
       commandManager.readCommandFolder();
-    
+      listener.init(client);
+      listener.setListening(true);
+      utils.init(client);
     });
 
     client.on('message', async message => {
@@ -34,5 +39,5 @@ function main() {
 
 
 }
-client.login('NzgwMzM2NDUxMjIwNTM3MzY1.X7tm8w.tUheA0_s0c4VcehyQgo2jdI3r8I')
+
 main();
